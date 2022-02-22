@@ -405,7 +405,7 @@ static void destroyContextWGL(_GLFWwindow* window)
 //////                       GLFW internal API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-// Initialize WGL
+// initializeGLFW WGL
 //
 GLFWbool _glfwInitWGL(void)
 {

@@ -238,7 +238,7 @@ static void usage(void)
 
 
 //========================================================================
-// Initialize a new particle
+// initializeGLFW a new particle
 //========================================================================
 
 static void init_particle(PARTICLE *p, double t)

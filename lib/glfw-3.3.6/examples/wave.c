@@ -64,7 +64,7 @@ struct Vertex vertex[VERTEXNUM];
  */
 
 //========================================================================
-// Initialize grid geometry
+// initializeGLFW grid geometry
 //========================================================================
 
 void init_vertices(void)
@@ -112,7 +112,7 @@ double vx[GRIDW][GRIDH], vy[GRIDW][GRIDH];
 double ax[GRIDW][GRIDH], ay[GRIDW][GRIDH];
 
 //========================================================================
-// Initialize grid
+// initializeGLFW grid
 //========================================================================
 
 void init_grid(void)
@@ -168,7 +168,7 @@ void draw_scene(GLFWwindow* window)
 
 
 //========================================================================
-// Initialize Miscellaneous OpenGL state
+// initializeGLFW Miscellaneous OpenGL state
 //========================================================================
 
 void init_opengl(void)
@@ -419,15 +419,15 @@ int main(int argc, char* argv[])
     glfwGetFramebufferSize(window, &width, &height);
     framebuffer_size_callback(window, width, height);
 
-    // Initialize OpenGL
+    // initializeGLFW OpenGL
     init_opengl();
 
-    // Initialize simulation
+    // initializeGLFW simulation
     init_vertices();
     init_grid();
     adjust_grid();
 
-    // Initialize timer
+    // initializeGLFW timer
     t_old = glfwGetTime() - 0.01;
 
     while (!glfwWindowShouldClose(window))
