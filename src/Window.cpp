@@ -36,8 +36,19 @@ namespace  cpp_tutorial{
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); //macos only
 
-        //glfwSetFramebufferSizeCallback(m_pWindow, Framebuffer_size_callback);
+        m_pWindow = glfwCreateWindow(800, 600, "LearnOpenGL", nullptr, nullptr);
 
+
+        if (m_pWindow == nullptr)
+        {
+            std::cout << "Window::CreateWindow::Failed to create GLFW window" << std::endl;
+            return false;
+        }
+
+        glfwMakeContextCurrent(m_pWindow);
+        glfwSetFramebufferSizeCallback(m_pWindow, Framebuffer_size_callback);
+
+        return true;
 
         return true;
     }
@@ -53,17 +64,6 @@ namespace  cpp_tutorial{
 
 //endregion
 
-    bool Window::CreateWindow() {
-
-        m_pWindow = glfwCreateWindow(800, 600, "LearnOpenGL", nullptr, nullptr);
-        if (m_pWindow == nullptr)
-        {
-            std::cout << "Window::CreateWindow::Failed to create GLFW window" << std::endl;
-            return false;
-        }
-        glfwMakeContextCurrent(m_pWindow);
-        return true;
-    }
 
 
     void Window::Update() {
@@ -82,6 +82,14 @@ namespace  cpp_tutorial{
     void Window::Framebuffer_size_callback(GLFWwindow* window, int width, int height)
     {
         glViewport(0, 0, width, height);
+    }
+
+    GLFWwindow *Window::GetPWindow() const {
+        return m_pWindow;
+    }
+
+    void Window::SetPWindow(GLFWwindow *mPWindow) {
+        m_pWindow = mPWindow;
     }
 
 }

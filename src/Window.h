@@ -17,13 +17,16 @@ namespace cpp_tutorial{
     public:
         GLFWwindow* m_pWindow = nullptr;
 
+        GLFWwindow *GetPWindow() const;
+
+        void SetPWindow(GLFWwindow *mPWindow);
+
         Window();
         Window (const Window &rObj);
         //destructor
         ~Window();
 
         bool Initialize();
-        bool CreateWindow();
         void Update();
 
         bool ShouldClose() const;
